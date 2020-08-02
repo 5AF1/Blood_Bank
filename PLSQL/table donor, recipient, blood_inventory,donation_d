@@ -1,0 +1,35 @@
+table 
+donor, 
+recipient, 
+blood_inventory,
+donation_details
+
+*SearchDonorByID
+*SearchDonorsByArea
+*SearchRecipient
+*searchDonorsByBlood
+*searchEligible
+
+*countBagMain
+*countBagofBlood
+
+deleteDonor
+deleteTrigger
+insertDonor
+insertTrigger
+updateDonor
+updateTrigger
+
+*eligibilitiProc
+*eligibilityMain
+
+
+
+*donation details e rid add and 
+recipient theke did baad dibo and search update korbo insert o update
+
+*search e shob elig marka donor der ke output hishabe dekhabo
+
+*eligproc e sortby add kora
+
+dui table ek kora count func thik kora

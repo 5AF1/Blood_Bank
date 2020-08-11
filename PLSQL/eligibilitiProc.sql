@@ -1,4 +1,3 @@
-
 DROP PROCEDURE isEligible;
 
 create or replace procedure isEligible(
@@ -23,9 +22,19 @@ begin
 	close getDateFrom;
 	
 	calcDate:= add_months(givenDate, 4);
-	DBMS_OUTPUT.PUT_LINE('calculated date = ' || to_char(calcDate));
-    DBMS_OUTPUT.PUT_LINE('given date = ' || to_char(givenDate));
-    DBMS_OUTPUT.PUT_LINE('presentDate date = ' || to_char(presentDate));
+
+
+
+------           comments  starts         ----
+
+	--DBMS_OUTPUT.PUT_LINE('calculated date = ' || to_char(calcDate));
+    --DBMS_OUTPUT.PUT_LINE('given date = ' || to_char(givenDate));
+    --DBMS_OUTPUT.PUT_LINE('presentDate date = ' || to_char(presentDate));
+
+
+
+---          comments finished            --
+
 	
 	if calcDate > presentDate then
 		update Donor set Deligibility = 'No' where DID=id;
@@ -36,6 +45,3 @@ begin
 end isEligible;
 /
 
-
-
---update donation_details set givenat = add_months(givenat, 4) where DID=10;

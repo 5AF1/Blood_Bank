@@ -21,11 +21,7 @@ declare
 	from donation_details dd join donor d on dd.did = d.did join recipient r on r.rid = dd.rid
     ---from donation_details dd join recipient r on dd.rid = r.rid join donor d on d.did = dd.did
 	where r.rid = matchrid;
-	/*
-	select rid,rname,rage,rgender,rbloodgroup,raddress,rphonenum,did,dname,givenat,hospital,amount 
-	from recipient join (donation_details join donor on donation_details.did = donor.did) on donor.did = recipient.did
-	where rin = matchrid;
-	*/
+	
 begin
     
 	

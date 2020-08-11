@@ -1,9 +1,7 @@
-
 create or replace function countBloodDonor(matchBloodGroup DONOR.Dbloodgroup%TYPE)
-  return number
-  is
-  
-  totalDonor number;
+return number
+is
+totalDonor number;
 
 begin
 	

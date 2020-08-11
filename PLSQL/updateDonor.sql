@@ -12,6 +12,6 @@ declare
 begin
 	
 	update DONOR set Dname = nam, Darea = area , Daddress = address , Dphonenum = phonenum where DID=id1;
-	dbms_output.put_line('data update also in blood_inventory');
+	
 end;
 /

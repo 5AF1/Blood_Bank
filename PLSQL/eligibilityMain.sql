@@ -1,4 +1,3 @@
-
 set serveroutput on;
 
 declare
@@ -7,7 +6,5 @@ declare
 begin
 	
 	isEligible(donid,givenDate);
-	--DBMS_OUTPUT.PUT_LINE('calculated date = ' || to_char(givenDate));
-
 end;
 /

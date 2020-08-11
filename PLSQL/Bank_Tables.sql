@@ -1,11 +1,9 @@
 DROP TABLE DONOR CASCADE CONSTRAINTS;
 DROP TABLE RECIPIENT CASCADE CONSTRAINTS;
---DROP TABLE BLOOD_INVENTORY CASCADE CONSTRAINTS;
 DROP TABLE DONATION_DETAILS CASCADE CONSTRAINTS;
 
 DROP SEQUENCE donor_sequence; 
-DROP SEQUENCE recip_sequence; 
---DROP SEQUENCE blinven_sequence; 
+DROP SEQUENCE recip_sequence;  
 DROP SEQUENCE dondet_sequence; 
 
 create table DONOR
@@ -35,27 +33,18 @@ CREATE TABLE RECIPIENT (
 	Rbloodgroup char(3), 
 	Raddress varchar2(60), 
 	Rphonenum varchar2(20), 
-	
-    PRIMARY KEY(RID)
+	PRIMARY KEY(RID)
 ); 
 
 Create sequence recip_sequence start with 5001
 increment by 1
 minvalue 5001
 maxvalue 10000;
-/*
-CREATE TABLE BLOOD_INVENTORY
-(
-	DID number,
-	bagnumber int, 
-	
-    PRIMARY KEY(bagnumber)	
-); 
 
-Create sequence blinven_sequence start with 2001
-increment by 1
-minvalue 2001
-maxvalue 10000;*/
+
+
+
+
 
 CREATE TABLE DONATION_DETAILS
 (
@@ -85,6 +74,7 @@ insert into DONOR values(donor_sequence.nextval,'Sabbir',25,'Male','B-','Mirpur'
 insert into DONOR values(donor_sequence.nextval,'Nawar',45,'Female','A-','Tejgaon','7A05 LV Road', '705703706','Yes');
 insert into DONOR values(donor_sequence.nextval,'Anindya',32,'Male','O+','Panthapath','98 South Panthapath', '989898989898','No');
 insert into DONOR values(donor_sequence.nextval,'Mohua',27,'Female','O-','Farmgate','Farmgate Bridge', '006006006006','No');
+insert into DONOR values(donor_sequence.nextval,'Mohia',27,'Male','O-','Farmgate','Farmgate Bridge', '006006006006','Yes');
 
 
 insert into RECIPIENT values(recip_sequence.nextval, 'Abdullah', 25, 'Male', 'B+','34 Dhanmondi','0123436747'); 
@@ -98,17 +88,8 @@ insert into RECIPIENT values(recip_sequence.nextval, 'Sami', 38, 'Male', 'A-','1
 insert into RECIPIENT values(recip_sequence.nextval, 'Siam', 45, 'Male', 'O-','C 3 Khilgaon','3453647768');
 insert into RECIPIENT values(recip_sequence.nextval, 'Nayem', 20, 'Male', 'B-','5/D Shantinagar','253647768');
 
-/*
-insert into  BLOOD_INVENTORY (DID, bagnumber,  heamoglobin,  platelets) values (1, blinven_sequence.nextval,  14, 55); 
-insert into  BLOOD_INVENTORY (DID, bagnumber,  heamoglobin,  platelets) values (2, blinven_sequence.nextval,  15, 52);
-insert into  BLOOD_INVENTORY (DID, bagnumber,  heamoglobin,  platelets) values (3, blinven_sequence.nextval,  16, 56);
-insert into  BLOOD_INVENTORY (DID, bagnumber,  heamoglobin,  platelets) values (4, blinven_sequence.nextval,  18, 59);
-insert into  BLOOD_INVENTORY (DID, bagnumber,  heamoglobin,  platelets) values (5, blinven_sequence.nextval,  14, 45);
-insert into  BLOOD_INVENTORY (DID, bagnumber,  heamoglobin,  platelets) values (6, blinven_sequence.nextval,  17, 61);
-insert into  BLOOD_INVENTORY (DID, bagnumber,  heamoglobin,  platelets) values (7, blinven_sequence.nextval,  15, 49);
-insert into  BLOOD_INVENTORY (DID, bagnumber,  heamoglobin,  platelets) values (8, blinven_sequence.nextval,  10, 65);
-insert into  BLOOD_INVENTORY (DID, bagnumber,  heamoglobin,  platelets) values (9, blinven_sequence.nextval,  12, 50);
-insert into  BLOOD_INVENTORY (DID, bagnumber,  heamoglobin,  platelets) values (10, blinven_sequence.nextval, 14, 55);*/
+
+
 
 insert into DONATION_DETAILS (DID, donationnumber, hospital,  givenat,RID,heamoglobin,platelets) values (1, dondet_sequence.nextval, 'Ad-Din Hospital', TO_DATE('2018-02-03','yyyy/mm/dd'),5003, 14, 55); 
 insert into DONATION_DETAILS (DID, donationnumber, hospital,  givenat,RID,heamoglobin,platelets) values (2, dondet_sequence.nextval, 'Shahid Suhrawardy Hospital', TO_DATE('2015-11-22','yyyy/mm/dd'),5004, 15, 52); 
@@ -120,18 +101,5 @@ insert into DONATION_DETAILS (DID, donationnumber, hospital,  givenat,RID,heamog
 insert into DONATION_DETAILS (DID, donationnumber, hospital,  givenat,RID,heamoglobin,platelets) values (8, dondet_sequence.nextval, 'Central Hospital Ltd.',  TO_DATE('2016-9-13','yyyy/mm/dd'),5008, 10, 65); 
 insert into DONATION_DETAILS (DID, donationnumber, hospital,  givenat,RID,heamoglobin,platelets) values (9, dondet_sequence.nextval, 'Islami Bank Hospital',  TO_DATE('2017-6-27','yyyy/mm/dd'),5005, 12, 50); 
 insert into DONATION_DETAILS (DID, donationnumber, hospital,  givenat,RID,heamoglobin,platelets) values (10,dondet_sequence.nextval, 'City Hospital Ltd',  TO_DATE('2017-10-4','yyyy/mm/dd'),5009, 14, 55); 
-insert into DONATION_DETAILS (DID, donationnumber, hospital,  givenat,RID,heamoglobin,platelets) values (3,dondet_sequence.nextval, 'City Hospital Ltd', TO_DATE('2017-10-4','yyyy/mm/dd'),5007, 14, 55); 
---insert into DONATION_DETAILS (DID, donationnumber, hospital, amount, givenat) values (11, 1011, 'Dhaka Shishu Hospital', 3, TO_DATE('2017-3-26','yyyy/mm/dd')); 
---insert into DONATION_DETAILS (DID, donationnumber, hospital, amount, givenat) values (12, 1012, 'Ibn Sina Hospital', 2, TO_DATE('2016-6-29','yyyy/mm/dd')); 
---clear screen;
+insert into DONATION_DETAILS (DID, donationnumber, hospital,  givenat,RID,heamoglobin,platelets) values (3,dondet_sequence.nextval, 'City Hospital Ltd', TO_DATE('2017-10-4','yyyy/mm/dd'),5009, 14, 55); 
 
-SET SERVEROUTPUT ON;
-
-DECLARE
-
-BEGIN
-	DBMS_OUTPUT.PUT_LINE('Enter (1) to INSERT DONOR ');
-	DBMS_OUTPUT.PUT_LINE('Enter (2) to UPDATE DONOR ');
-	DBMS_OUTPUT.PUT_LINE('Enter (3) to DELETE DONOR ');
-END;
-/

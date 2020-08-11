@@ -12,9 +12,6 @@ declare
 	
 begin
     
-	
-	DBMS_OUTPUT.PUT_LINE('Name'||' -- ' || 'Age'||' -- ' || 'Gender' ||' -- '|| 'Blood Group'||' -- '|| 'Address' ||' -- '|| 'Phone Number');
-	DBMS_OUTPUT.PUT_LINE( name ||' -- '|| TO_CHAR(age)||' -- '||gender||' -- '|| bloodGrp||' -- '||address||' -- '||phonenum);
 	insert into Recipient values(recip_sequence.nextval,name,age,gender,bloodGrp,address,phonenum);
 
 end;
